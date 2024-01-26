@@ -3,12 +3,11 @@
 #define MAX(a, b) (((a) <= (b)) ? (b) : (a))
 
 using std::make_unique;
-using std::unique_ptr;
 using std::vector;
 
 AVLTree::AVLTree(int value) : value(value) {}
 
-void AVLTree::updateHeightRecursive() {
+inline void AVLTree::updateHeightRecursive() {
   if (left) {
     left->updateHeight();
   }
@@ -20,7 +19,7 @@ void AVLTree::updateHeightRecursive() {
   height = 1 + MAX(leftHeight, rightHeight);
 }
 
-void AVLTree::updateHeight() {
+inline void AVLTree::updateHeight() {
   const int leftHeight = left ? left->height : -1;
   const int rightHeight = right ? right->height : -1;
   height = 1 + MAX(leftHeight, rightHeight);

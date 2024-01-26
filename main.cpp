@@ -12,11 +12,7 @@ int main(int argc, char *argv[]) {
     tree.addValue(i);
   }
 
-  std::cout << "[ ";
-  for (const auto &v : tree.getValues()) {
-    std::cout << v << " ";
-  }
-  std::cout << "]\n";
+  std::cout << tree.getValues().back() + 1 << " elements\n";
 
   std::cout << tree.getHeight() << std::endl;
 
