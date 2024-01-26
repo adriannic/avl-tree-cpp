@@ -10,10 +10,10 @@ AVLTree::AVLTree(int value) : value(value) {}
 
 void AVLTree::updateHeightRecursive() {
   if (left) {
-    left->updateHeightRecursive();
+    left->updateHeight();
   }
   if (right) {
-    right->updateHeightRecursive();
+    right->updateHeight();
   }
   const int leftHeight = left ? left->height : -1;
   const int rightHeight = right ? right->height : -1;
