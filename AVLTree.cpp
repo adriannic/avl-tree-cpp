@@ -32,6 +32,7 @@ void AVLTree::leftRotate() {
   value = right->value;
   left->right = std::move(right->left);
   right = std::move(right->right);
+  updateHeightRecursive();
 }
 
 void AVLTree::rightRotate() {
@@ -41,6 +42,7 @@ void AVLTree::rightRotate() {
   value = left->value;
   right->left = std::move(left->right);
   left = std::move(left->left);
+  updateHeightRecursive();
 }
 
 void AVLTree::balance(const int value) {
@@ -60,7 +62,6 @@ void AVLTree::balance(const int value) {
     }
     rightRotate();
   }
-  updateHeightRecursive();
 }
 
 void AVLTree::addValue(const int value) {
