@@ -8,13 +8,19 @@ using std::vector;
 
 AVLTree::AVLTree(int value) : value(value) {}
 
-void AVLTree::updateHeight() {
+void AVLTree::updateHeightRecursive() {
   if (left) {
-    left->updateHeight();
+    left->updateHeightRecursive();
   }
   if (right) {
-    right->updateHeight();
+    right->updateHeightRecursive();
   }
+  const int leftHeight = left ? left->height : -1;
+  const int rightHeight = right ? right->height : -1;
+  height = 1 + MAX(leftHeight, rightHeight);
+}
+
+void AVLTree::updateHeight() {
   const int leftHeight = left ? left->height : -1;
   const int rightHeight = right ? right->height : -1;
   height = 1 + MAX(leftHeight, rightHeight);
@@ -55,7 +61,7 @@ void AVLTree::balance(const int value) {
     }
     rightRotate();
   }
-  updateHeight();
+  updateHeightRecursive();
 }
 
 void AVLTree::addValue(const int value) {

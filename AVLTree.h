@@ -10,6 +10,7 @@ class AVLTree {
   void balance(const int);
   void leftRotate();
   void rightRotate();
+  void updateHeightRecursive();
   void updateHeight();
   void getValuesAux(std::vector<int> &) const;
 
