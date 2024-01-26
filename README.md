@@ -14,4 +14,9 @@ To clean the binary use `make clean`.
 
 ## Usage
 
-To run the program use ```./avl-tree <number of items>```.
+To run the program use `./avl-tree <number of items>`.
+
+## Benchmark
+
+To run the benchmark use `make bench`. It will create a file called
+`results.txt`.
